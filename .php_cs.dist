@@ -1,0 +1,30 @@
+<?php
+
+namespace PhpCsFixer;
+
+$finder = Finder::create()
+    ->name('*.php')
+    ->in(__DIR__.DIRECTORY_SEPARATOR.'src')
+    ->in(__DIR__.DIRECTORY_SEPARATOR.'tests')
+;
+
+return Config::create()
+    ->setUsingCache(false)
+    ->setRiskyAllowed(true)
+    ->setRules([
+        '@Symfony' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'linebreak_after_opening_tag' => true,
+        'no_useless_else' => true,
+        'no_useless_return' => true,
+        'ordered_imports' => true,
+        'php_unit_strict' => true,
+        'phpdoc_annotation_without_dot' => false,
+        'phpdoc_order' => true,
+        'semicolon_after_instruction' => true,
+        'strict_comparison' => true,
+        'strict_param' => true,
+        'self_accessor' => false,
+    ])
+    ->setFinder($finder)
+;
