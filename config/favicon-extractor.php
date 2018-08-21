@@ -28,5 +28,5 @@ return [
     | \StefanBauer\LaravelFaviconExtractor\Generator\FilenameGeneratorInterface
     |
     */
-    'filename_generator_class' => \StefanBauer\LaravelFaviconExtractor\Generator\FilenameGenerator::class
+    'filename_generator_class' => \StefanBauer\LaravelFaviconExtractor\Generator\FilenameGenerator::class,
 ];
