@@ -68,7 +68,7 @@ class FaviconExtractor implements FaviconExtractorInterface
             ));
         }
 
-        return $targetPath;
+        return str_replace_first('public/', '', $targetPath);
     }
 
     private function getTargetPath(string $path, string $filename): string
