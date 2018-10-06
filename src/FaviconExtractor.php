@@ -29,10 +29,6 @@ class FaviconExtractor implements FaviconExtractorInterface
 
     public function fromUrl(string $url): FaviconExtractorInterface
     {
-        if (!$this->isValidUrl($url)) {
-            throw new InvalidUrlException();
-        }
-
         $this->url = $url;
 
         return $this;
@@ -74,21 +70,5 @@ class FaviconExtractor implements FaviconExtractorInterface
     private function getTargetPath(string $path, string $filename): string
     {
         return $path.DIRECTORY_SEPARATOR.$filename.'.png';
-    }
-
-    private function isValidUrl(string $url): bool
-    {
-        $pattern = '/^
-            (http|https):\\/\\/
-            (
-                [a-z0-9]+([\\-\\.]{1}[a-z_0-9]+)*\\.[a-z]{2,5}
-                |
-                (([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).){3}([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])
-            )
-            (:[0-9]+)?
-            (\\/.*)?
-        $/ixu';
-
-        return preg_match($pattern, $url) > 0;
     }
 }
