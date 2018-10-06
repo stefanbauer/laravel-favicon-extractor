@@ -47,33 +47,6 @@ class FaviconExtractorTest extends TestCase
         parent::setUp();
     }
 
-    public function test_it_accepts_a_valid_url()
-    {
-        $extractor = $this->extractor->fromUrl($expectedUrl = 'https://example.com');
-
-        $this->assertInstanceOf(FaviconExtractor::class, $extractor);
-        $this->assertSame($expectedUrl, $extractor->getUrl());
-    }
-
-    public function provideInvalidUrls()
-    {
-        return [
-            'Missing protocol' => ['example.com'],
-            'Invalid protocol' => ['ftp://example.com'],
-            'Missing tld' => ['http://example'],
-        ];
-    }
-
-    /**
-     * @dataProvider provideInvalidUrls
-     */
-    public function test_it_does_not_accept_an_invalid_url(string $url)
-    {
-        $this->expectException(InvalidUrlException::class);
-
-        $this->extractor->fromUrl($url);
-    }
-
     public function test_it_fetches_the_favicon()
     {
         $expectedUrl = 'http://example.com';
