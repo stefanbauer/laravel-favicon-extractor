@@ -18,11 +18,6 @@ class FaviconExtractorServiceProvider extends ServiceProvider
             __DIR__.'/../config/favicon-extractor.php' => config_path('favicon-extractor.php')
         ], 'config');
 
-        $this->mergeConfigFrom(__DIR__.'/../config/favicon-extractor.php', 'favicon-extractor');
-    }
-
-    public function register()
-    {
         $this->app->bind(
             FaviconFactoryInterface::class,
             FaviconFactory::class
@@ -44,5 +39,10 @@ class FaviconExtractorServiceProvider extends ServiceProvider
         );
 
         $this->app->alias(FaviconExtractorInterface::class, 'favicon.extractor');
+    }
+
+    public function register()
+    {
+        $this->mergeConfigFrom(__DIR__.'/../config/favicon-extractor.php', 'favicon-extractor');
     }
 }
