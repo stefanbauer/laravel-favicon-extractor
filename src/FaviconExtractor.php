@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace StefanBauer\LaravelFaviconExtractor;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use StefanBauer\LaravelFaviconExtractor\Exception\FaviconCouldNotBeSavedException;
 use StefanBauer\LaravelFaviconExtractor\Exception\InvalidUrlException;
@@ -64,7 +65,7 @@ class FaviconExtractor implements FaviconExtractorInterface
             ));
         }
 
-        return str_replace_first('public/', '', $targetPath);
+        return Str::replaceFirst('public/', '', $targetPath);
     }
 
     private function getTargetPath(string $path, string $filename): string
