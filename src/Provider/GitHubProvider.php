@@ -18,7 +18,7 @@ class GitHubProvider implements ProviderInterface
 
     private function getUrl(string $url): string
     {
-        $domain = preg_replace('/https?:\/\/(www\.)?([a-z\-\.]+)\/?.*/i', '$2', $url);
+        $domain = preg_replace('/https?:\/\/(www\.)?([\w\-\.]+)\/?.*/i', '$2', $url);
 
         return 'https://favicons.githubusercontent.com/'.urlencode($domain);
     }
