@@ -18,6 +18,8 @@ class GoogleProvider implements ProviderInterface
 
     private function getUrl(string $url): string
     {
-        return 'https://www.google.com/s2/favicons?domain='.urlencode($url);
+        $favicon_size = config('favicon-extractor.favicon_size', 32);
+        $size_query = '&sz='.$favicon_size;
+        return 'https://www.google.com/s2/favicons?domain='.urlencode($url).$size_query;
     }
 }
