@@ -17,6 +17,28 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Favicon Size
+    |--------------------------------------------------------------------------
+    |
+    | This value is used for requesting a favicon of the given size (if supported by the given provider)
+    |
+    */
+
+    'favicon_size' => 32,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Favicon Disk
+    |--------------------------------------------------------------------------
+    |
+    | This value is used for providing a default disk for the favicon
+    |
+    */
+
+    'disk' => 'public',
+    
+    /*
+    |--------------------------------------------------------------------------
     | Filename Generator
     |--------------------------------------------------------------------------
     |
@@ -28,5 +50,6 @@ return [
     | \StefanBauer\LaravelFaviconExtractor\Generator\FilenameGeneratorInterface
     |
     */
+   
     'filename_generator_class' => \StefanBauer\LaravelFaviconExtractor\Generator\FilenameGenerator::class,
 ];
